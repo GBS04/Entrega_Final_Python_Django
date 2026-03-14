@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Message{% endblock %}
+
+{% block content %}
+<h1>{{ message.subject }}</h1>
+<p><strong>From:</strong> {{ message.sender }}</p>
+<p><strong>To:</strong> {{ message.receiver }}</p>
+<p><strong>Date:</strong> {{ message.date_sent }}</p>
+<div>{{ message.body|linebreaks }}</div>
+<a href="{% url 'inbox' %}" class="btn btn-secondary">Back to Inbox</a>
+{% endblock %}

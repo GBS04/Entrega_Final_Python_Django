@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Inbox{% endblock %}
+
+{% block content %}
+<h1>Inbox</h1>
+<a href="{% url 'send_message' %}" class="btn btn-primary mb-3">Send Message</a>
+<a href="{% url 'sent_messages' %}" class="btn btn-secondary mb-3">Sent Messages</a>
+{% if messages %}
+<ul class="list-group">
+    {% for message in messages %}
+    <li class="list-group-item">
+        <a href="{% url 'message_detail' message.pk %}">{{ message.subject }}</a> from {{ message.sender }} on {{ message.date_sent }}
+        {% if not message.is_read %}<span class="badge bg-primary">New</span>{% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No messages.</p>
+{% endif %}
+{% endblock %}

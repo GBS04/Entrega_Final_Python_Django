@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Sent Messages{% endblock %}
+
+{% block content %}
+<h1>Sent Messages</h1>
+<a href="{% url 'send_message' %}" class="btn btn-primary mb-3">Send Message</a>
+<a href="{% url 'inbox' %}" class="btn btn-secondary mb-3">Inbox</a>
+{% if messages %}
+<ul class="list-group">
+    {% for message in messages %}
+    <li class="list-group-item">
+        {{ message.subject }} to {{ message.receiver }} on {{ message.date_sent }}
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No sent messages.</p>
+{% endif %}
+{% endblock %}
