@@ -1,6 +1,4 @@
-# coder-85140-django
-
-Proyecto final de blog en Django.
+# Proyecto final de blog en Django
 
 ## Descripción
 
