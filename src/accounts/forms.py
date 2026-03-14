@@ -33,7 +33,6 @@ class ProfileUpdateForm(forms.ModelForm):
         if self.instance and self.instance.user:
             self.fields['first_name'].initial = self.instance.user.first_name
             self.fields['last_name'].initial = self.instance.user.last_name
-            self.fields['email'].initial = self.instance.user.email
 
     def save(self, commit=True):
         profile = super().save(commit=False)
